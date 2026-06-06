@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-ma1n=&&dn+wlrcpe3+q_7z9k=g3jha=i5*qi%_r_pmwji#_k(5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+]
 
 
 # Application definition
@@ -120,6 +123,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # 認証関連の設定
 LOGIN_URL = "/accounts/login/"
