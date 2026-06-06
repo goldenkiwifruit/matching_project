@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}プロフィール画像管理{% endblock %}
+
+{% block content %}
+<h2>プロフィール画像</h2>
+
+<div class="image_grid">
+  {% for img in slots %}
+    {% if img %}
+      <div class="image_card">
+        <img src="{{ img.image.url }}" class="image_preview">
+
+        <form method="post" action="{% url 'delete_profile_image' img.id %}">
+          {% csrf_token %}
+          <button class="delete_btn">削除</button>
+        </form>
+      </div>
+    {% else %}
+        <div class="image_add_card">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <label>
+              ＋
+              <input type="file" name="image" hidden onchange="this.form.submit()">
+            </label>
+          </form>
+        </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<hr>
+
+<a href="{% url 'edit_profile' %}">← プロフィール編集に戻る</a>
+{% endblock %}

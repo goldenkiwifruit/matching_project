@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'matching/css/ui.css' %}">
+    </head>
+
+    <body class="guest">
+        <div class="app_wrapper">
+            <main class="app_content guest_content">
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+    </body>
+</html>

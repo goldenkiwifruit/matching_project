@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}応募者一覧{% endblock %}
+
+{% block content %}
+<div class="apply-page">
+
+  <h2>{{ job.title }} の応募者</h2>
+
+  <div class="apply_user_list {% if applications|length == 1 %}single{% endif %}">
+    {% for app in applications %}
+      <div class="apply_user_card">
+        
+        <div class="user_name">
+          {{ app.user.username }}
+        </div>
+
+        <div class="apply_actions">
+          <a href="{% url 'user_detail' app.user.id %}?from=applications&job_id={{ job.id }}" class="apply-btn profile-btn">
+            プロフィール
+          </a>
+          
+          {% if app.status == "accepted" %}
+            <div class="apply-btn accepted">採用済み</div>
+          {% else %}
+            <a href="{% url 'accept_application' app.id %}" class="apply-btn accept-btn">
+              採用する
+            </a>
+          {% endif %}
+        </div>
+
+      </div>
+    {% empty %}
+      <p>まだ応募者はいません</p>
+    {% endfor %}
+  </div>
+
+</div>
+<a href="{% url 'job_list' %}">← 戻る</a>
+{% endblock %}

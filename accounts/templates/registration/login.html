@@ -1,0 +1,26 @@
+{% extends "base_guest.html" %}
+
+{% block title %}ログイン{% endblock %}
+
+{% block content %}
+<div class="auth_container">
+    <h1 class="auth_title">Matching App</h1>
+
+    <form method="post" class="auth_form">
+        {% csrf_token %}
+        
+        <label>ユーザー名</label>
+        {{ form.username }}
+
+        <label>パスワード</label>
+        {{ form.password }}
+
+        <button type="submit" class="btn_primary_full">ログイン</button>
+    </form>
+
+    <p class="auth_footer">
+        アカウントをお持ちでない方は
+        <a href="{% url 'signup' %}">新規登録</a>
+    </p>
+</div>
+{% endblock %}

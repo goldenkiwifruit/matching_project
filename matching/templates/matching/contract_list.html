@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}契約一覧{% endblock %}
+
+{% block content %}
+<h2>契約一覧</h2>
+
+<div class="contract_list">
+  {% for contract in contracts %}
+    <a href="{% url 'contract_chat' contract.id %}" class="contract_link">
+      <div class="contract_card">
+        <div class="contract_info">
+          <p>{{ contract.job.title }}</p>
+
+          {% if request.user == contract.client %}
+            <p>相手：{{ contract.worker.username }}</p>
+          {% else %}
+            <p>企業：{{ contract.client.username }}</p>
+          {% endif %}
+          <p>状態：{{ contract.get_status_display }}</p>
+
+        </div>
+
+        {% if contract.status == "active" %}
+          {% if contract.unread_count > 0 %}
+            <span class="badge">
+              {{ contract.unread_count}}
+            </span>
+          {% endif %}
+        {% elif contract.status == "completed" %}
+          {% if not contract.review_exists %}
+            <a href="{% url 'create_review' contract.id %}" class="review_exists">
+              評価する
+            </a>
+          {% else %}
+            <span class="review_done">
+              評価済み
+            </span>
+          {% endif %}
+        {% endif %}
+      </div>
+    </a>
+  {% empty %}
+    <p>まだ契約がありません</p>
+  {% endfor %}
+</div>
+{% endblock %}

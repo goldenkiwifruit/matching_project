@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}プロフィール{% endblock %}
+
+{% block content %}
+<div class="profile_detail">
+
+  <!-- 戻る -->
+  <div class="back_area">
+{% if from_page == "applications" %}
+  <a href="{% url 'job_applications' job_id %}">
+    ← 応募者一覧に戻る
+  </a>
+
+{% elif from_page == "jobs" and job_id %}
+  <a href="{% url 'job_detail' job_id %}?from=jobs">
+    ← 案件詳細に戻る
+  </a>
+
+{% else %}
+  <a href="{% url 'user_list' %}">
+    ← ワーカー一覧に戻る
+  </a>
+{% endif %}
+  </div>
+
+  <!-- 画像 -->
+  {% if images_count > 1 %}
+    <a href="?i={{ index|default:0|add:1 }}">
+  {% endif %}
+
+  <img
+    class="profile_main_img"
+    src="{% if img %}{{ img.image.url }}{% else %}{% static 'img/no-image.png' %}{% endif %}"
+  >
+
+  {% if images_count > 1 %}
+  {% endif %}  
+  <!-- 名前 -->
+  <div class="profile_name">
+    {{ target.username }} 
+    {% if target.profile.role == "user" %}
+      <span class="profile_age">
+        {{ target.profile.age }}
+      </span> 
+    {% endif %}
+  </div>
+
+  <!-- 自己紹介 -->
+  <div class="profile_bio">
+    {% if target.profile.bio %}
+      {{ target.profile.bio }}
+    {% else %}
+      <span class="bio_placeholder">まだ自己紹介がありません</span>
+    {% endif %}
+  </div>
+
+  <!-- 評価 -->
+  <h3>レビュー</h3>
+
+  {% if reviews %}
+
+    <div class="profile_rating">
+
+      {% if avg_rating %}
+
+        <div class="stars">
+            {% if avg_rating >= 1 %}★{% else %}☆{% endif %}
+            {% if avg_rating >= 2 %}★{% else %}☆{% endif %}
+            {% if avg_rating >= 3 %}★{% else %}☆{% endif %}
+            {% if avg_rating >= 4 %}★{% else %}☆{% endif %}
+            {% if avg_rating >= 5 %}★{% else %}☆{% endif %}
+        </div>
+
+        <div class="rating_info">
+            {{ avg_rating|floatformat:1 }}
+            (<a href="{% url 'review_list' target.id %}">
+                {{ review_count }}件
+            </a>)
+        </div>
+
+      {% else %}
+
+        <div>未評価</div>
+
+      {% endif %}
+    </div>
+  {% else %}
+    <div>レビューはまだありません</div>
+  {% endif %}
+</div>
+{% endblock %}

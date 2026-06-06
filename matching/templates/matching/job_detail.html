@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}案件詳細{% endblock %}
+
+{% block content %}
+<div class="job_detail_card">
+    募集企業：
+  <a href="{% url 'user_detail' job.client.id %}?from={{ from_page }}&job_id={{ job.id }}">
+    {{ job.client.username }}
+  </a>
+
+    <h2>{{ job.title }}</h2>
+
+    <p>{{ job.description }}</p>
+    <p>{{ job.reward }}円</p>
+
+    {% if request.user.profile.role == "user" %}
+      {% if is_applied %}
+         <div class="apply_btn">応募済み</div>
+      {% else %}
+          <a href="{% url 'apply_job' job.id %}" class="btn_like">
+            応募する
+          </a>
+      {% endif %}
+    {% endif %}
+</div>
+
+{% if from_page == "applications" %}
+  <a href="{% url 'my_applications' %}">← 戻る</a>
+{% else %}
+  <a href="{% url 'job_list' %}">← 戻る</a>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="chat_wrapper">
+
+    <div class="chat_header">
+        <a href="{% url 'contract_list' %}" class="back_btn">←</a>
+        <span class="chat_title">{{ contract.job.title }}</span>
+        {% if request.user == contract.client and contract.status == "active" %}
+            <div class="contract_actions">
+                <a href="{% url 'contract_complete' contract.id %}" class="complete_btn">
+                    契約終了
+                </a>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="chat_messages">
+
+        {% for msg in messages %}
+        <div class="chat_row {% if msg.sender == request.user %}me{% else %}other{% endif %}">
+
+            <div class="chat_inner">
+
+            {% if msg.sender != request.user %}
+                <!-- 名前（上） -->
+                <div class="chat_name_only">
+                {{ msg.sender.username }}
+                </div>
+
+                <!-- アイコン＋吹き出し -->
+                <div class="chat_body">
+                    {% if msg.sender.profile.image %}
+                    <img src="{{ msg.sender.profile.image.url }}" class="chat_icon">
+                    {% else %}
+                    <div class="chat_icon placeholder"></div>
+                    {% endif %}
+                    <div class="chat_content">
+                        
+                        <div class="chat_bubble">
+                        <div class="chat_text">
+                            {{ msg.content }}
+                        </div>
+                        </div>
+
+                        <div class="chat_time">
+                        {{ msg.created_at|date:"H:i" }}
+                        </div>
+
+                    </div>
+                </div>
+            {% else %}
+                <!-- 自分はそのまま -->
+                <div class="chat_bubble">
+                    <div class="chat_text">
+                        {{ msg.content }}
+                    </div>
+                </div>
+                <div class="chat_time">
+                    {{ msg.created_at|date:"H:i" }}
+                </div>
+
+            {% endif %}
+
+            </div>
+
+        </div>
+        {% endfor %}    
+    </div>
+
+    {% if contract.status == "active" %}
+
+    <form method="POST" class="chat_form">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="メッセージ" required>
+        <button type="submit">送信</button>
+    </form>
+
+    {% else %}
+
+    <div class="chat_closed">
+        この契約は終了しています
+    </div>
+
+    {% endif %}
+
+</div>
+
+<script>
+  const chatBox = document.querySelector(".chat_messages");
+  chatBox.scrollTop = chatBox.scrollHeight;
+</script>
+{% endblock %}

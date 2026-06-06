@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}評価{% endblock %}
+
+{% block content %}
+<h2>評価</h2>
+<div class="review_container">
+    <form method="POST" class="review">
+        {% csrf_token %}
+
+        <label>評価</label>
+
+        <select name="rating" class="rank">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select>
+
+        <label>コメント</label>
+
+        <textarea name="comment"></textarea>
+
+        <button type="submit">
+            登録
+        </button>
+    </form>
+</div>
+{% endblock %}

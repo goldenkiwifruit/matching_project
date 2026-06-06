@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}案件詳細{% endblock %}
+
+{% block content %}
+
+<h2>応募一覧</h2>
+
+<div class="job_list">
+  {% for app in applications %}
+    <div class="job_card">
+      <h3>{{ app.job.title }}</h3>
+      <p>{{ app.job.description|truncatechars:40 }}</p>
+      <p>{{ app.job.reward }}円</p>
+      <div class="job_actions">
+        <a href="{% url 'job_detail' app.job.id %}?from=applications" class="action_btn detail">[詳細]</a>
+      </div>
+    </div>
+  {% empty %}
+    <p>まだ応募していません</p>
+  {% endfor %}
+</div>
+
+{% endblock %}

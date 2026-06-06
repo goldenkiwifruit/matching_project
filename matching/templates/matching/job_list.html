@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}案件一覧{% endblock %}
+
+{% block content %}
+<h2>案件一覧</h2>
+{% if request.user.profile.role == "company" %}
+<div style="text-align: right; margin-bottom: 10px;">
+    <a href="{% url 'create_job' %}">＋案件投稿</a>
+</div>
+{% endif %}
+<div class="job_tabs">
+    <a href="?status=open" class="tab {% if status == 'open' %}active{% endif %}">
+        募集中 ({{ open_count }}件)
+    </a>
+    <a href="?status=closed" class="tab {% if status == 'closed' %}active{% endif %}">
+        募集終了 ({{ closed_count }}件)
+    </a>
+</div>
+<div class="job_list">
+    {% for job in jobs %}
+         <div class="job_card {% if job.accepted_count >= job.max_workers %}closed{% endif %}">
+            {% if job.accepted_count >= job.max_workers %}
+                <div class="job_status">募集終了</div>
+            {% endif %}
+            <h3>{{ job.title }}</h3>
+            <p>{{ job.description }}</p>
+            <p>報酬：{{ job.reward }}円</p>
+            <P>募集：{{ job.max_workers }}人</P>
+            <p>応募：{{ job.application_count }}人</p>
+            <div class="job_actions">
+                <a href="{% url 'job_detail' job.id %}?from=jobs" class="action_btn secondary">[詳細]</a>
+                    {% if request.user.profile.role == "company" %}
+                        <a href="{% url 'job_applications' job.id %}" class="action_btn primary">
+                            [応募者]
+                        </a>
+                    {% else %}
+                        {% if job.accepted_count >= job.max_workers %}
+                            <div class="action_btn disabled">募集終了</div>
+                        {% else %}
+                            {% if job.id in applied_job_ids %}
+                                <div class="action_btn disabled">応募済み</div>
+                            {% else %}
+                                <a href="{% url 'apply_job' job.id %}" class="action_btn primary">
+                                    [応募]
+                                </a>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+            </div>
+        </div>
+    {% empty %}
+    <p>まだ案件がありません</p>
+    {% endfor %}
+</div>
+{% endblock %}

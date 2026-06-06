@@ -1,0 +1,44 @@
+{% extends "base_guest.html" %}
+
+{% block title %}新規登録{% endblock %}
+
+{% block content %}
+<div class="auth_container">
+    <h1 class="auth_title">新規登録</h1>
+
+    <form method="post" class="auth_form">
+        {% csrf_token %}
+        <label>アカウント種別</label>
+        <select name="role">
+            <option value="worker">ワーカー</option>
+            <option value="company">企業</option>
+        </select>
+
+        <label>ユーザー名</label>
+        {{ form.username }}
+        {% for error in form.username.errors %}
+            <div class="field_error">{{ error }}</div>
+        {% endfor %}
+
+        <label>パスワード</label>
+        {{ form.password1 }}
+        {% for error in form.password1.errors %}
+            <div class="field_error">{{ error }}</div>
+        {% endfor %}
+
+        <label>パスワード（確認）</label>
+        {{ form.password2 }}
+        {% for error in form.password2.errors %}
+            <div class="field_error">{{ error }}</div>
+        {% endfor %}
+
+        <button type="submit" class="btn_primary_full">登録</button>
+    </form>
+
+    <p class="auth_footer">
+        すでにアカウントをお持ちの方は
+        <a href="{% url 'login' %}">ログイン</a>
+    </p>
+
+</div>
+{% endblock %}

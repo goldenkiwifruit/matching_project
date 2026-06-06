@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'matching/css/ui.css' %}">
+{% endblock %}
+{% block extra_js %}
+<script src="{% static 'matching/js/ui.js' %}"></script>
+{% endblock %}
+{% block title %}プロフィール編集{% endblock %}
+
+{% block content %}
+<h2 class="page_title">プロフィール編集</h2>
+
+<!-- ① 画像アップロード用 -->
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+
+  <div class="profile_image_preview">
+
+    {% if images_count > 1 %}
+      <a href="?i={{ index|add:1 }}">
+    {% endif %}
+
+  <img
+    id="mainImage"
+    class="profile_main_img"
+    src="{% if current_img %}
+            {{ current_img.image.url }}
+         {% else %}
+            {% static 'img/no-image.png' %}
+         {% endif %}"
+  >
+    {% if images_count > 1 %}
+      </a>
+    {% endif %}
+
+  </div>
+
+  <div class="image_slider" id="thumbnailSlider">
+  {% for img in images %}
+    {% if img.id != current_img.id %}
+      <img
+        src="{{ img.image.url }}"
+        class="slider_img thumb"
+      >
+    {% endif %}
+  {% endfor %}
+  
+    <a href="{% url 'manage_profile_images' %}" class="add_thumb">
+      ＋
+    </a>
+  </div>
+  
+</form>
+
+<hr>
+
+<!-- ② プロフィール情報編集用 -->
+<form method="post">
+  {% csrf_token %}
+{% if request.user.profile.role == "worker" %}
+  <label>年齢</label>
+  {{ form.age }}
+{% endif %}
+
+<label>自己紹介</label>
+{{ form.bio }}
+
+  <div class="form_actions">
+    <a href="{% url 'user_list' %}" class="btn_return">戻る</a>
+    <button type="submit" name="save_profile" class="btn_primary">保存</button>
+  </div>
+</form>
+
+{% endblock %}

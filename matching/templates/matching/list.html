@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}ワーカー一覧{% endblock %}
+
+{% block content %}
+<h2>ワーカー一覧</h2>
+
+<div class="card_list">
+  {% for user in users %}
+    <a href="{% url 'user_detail' user.id %}?from=users" class="user_card">
+      {% with user.profile.images.first as img %}
+        <img
+          src="{% if img %}{{ img.image.url }}{% else %}{% static 'img/no-image.png' %}{% endif %}"
+          class="card_img"
+        >
+      {% endwith %}
+
+      <div class="card_info">
+        <div class="card_name">
+          {{ user.username }}（{{ user.profile.age }}）
+        </div>
+        <div class="card_bio">
+          {{ user.profile.bio|truncatechars:40 }}
+        </div>
+      </div>
+
+    </a>
+  {% empty %}
+    <p>まだワーカーはいません</p>
+  {% endfor %}
+</div>
+{% endblock %}

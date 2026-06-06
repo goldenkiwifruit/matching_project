@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}案件投稿{% endblock %}
+
+{% block content %}
+<h2>案件投稿</h2>
+
+<form method="post">
+  {% csrf_token %}
+
+  <label>タイトル</label>
+  <input type="text" name="title">
+
+  <label>説明</label>
+  <textarea name="description"></textarea>
+
+  <label>報酬</label>
+  <input type="number" name="reward">
+  
+  <label>募集人数</label>
+  <input type="number" name="max_workers" value="1" min="1">
+
+  <button type="submit" class="btn_primary">投稿</button>
+</form>
+<a href="{% url 'job_list' %}" class="job_back">← 戻る</a>
+{% endblock %}

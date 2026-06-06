@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}副業マッチング{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'matching/css/ui.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="app_wrapper">
+        <header class="app_header">
+            <h1 class="app_title">副業マッチング</h1>
+            <nav>
+                {% if request.user.profile.role == "company" %}
+                    <a href="{% url 'user_list' %}">ワーカー</a>
+                    <a href="{% url 'job_list' %}">案件一覧</a>
+                {% else %}
+                    <a href="{% url 'job_list' %}">案件一覧</a>
+                    <a href="{% url 'my_applications' %}">応募一覧</a>
+                {% endif %}
+                <a href="{% url 'contract_list' %}">契約一覧</a>
+                <a href="{% url 'edit_profile' %}">プロフィール編集</a>
+                <form method="post" action="{% url 'logout' %}" class="logout_from">
+                    {% csrf_token %}
+                    <button type="submit" class="logout_link">ログアウト</button>
+                </form>
+            </nav>
+        </header>
+        <main class="app_content">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
+
+{% block extra_js %}{% endblock %}
+</body>
+</html>

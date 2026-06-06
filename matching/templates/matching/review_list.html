@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}レビュー一覧{% endblock %}
+
+{% block content %}
+<h2>{{ target.username }} のレビュー</h2>
+
+{% for review in reviews %}
+
+<div class="review_card">
+    <div class="review_user">
+        {{ review.reviewer.username }}
+    </div>
+    <div class="stars">
+        {% if review.rating == 5 %}★★★★★{% endif %}
+        {% if review.rating == 4 %}★★★★☆{% endif %}
+        {% if review.rating == 3 %}★★★☆☆{% endif %}
+        {% if review.rating == 2 %}★★☆☆☆{% endif %}
+        {% if review.rating == 1 %}★☆☆☆☆{% endif %}
+    </div>
+
+    <div class="review_comment">
+        {{ review.comment }}
+    </div>
+</div>
+{% empty %}
+
+<p>レビューはありません</p>
+
+{% endfor %}
+<!-- 戻る -->
+<div class="back_area">
+    <a href="{% url 'user_detail' target.id %}" class="back_link">← 戻る</a>
+</div>
+{% endblock %}
