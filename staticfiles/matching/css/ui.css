@@ -1,0 +1,1166 @@
+.page_title {
+    text-align: center;
+    margin: 12px 0;
+}
+
+.user_list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+}
+
+.user_card p {
+    margin: 4px 0 0;
+    color: black;
+    font-size: 14px;
+}
+
+.btn_like {
+    background: #ff5a5f;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btn_primary {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background: #25d366;
+    color: white;
+    font-size: 15px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_return {
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background: blue;
+    color: white;
+    font-size: 15px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form_actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px
+}
+
+a, button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #eee;
+}
+
+.app_wrapper {
+    max-width: 100%;
+    margin: 0 auto;
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.app_header {
+    background: #075e54;
+    color: white;
+    padding: 10px;
+}
+
+.app_title {
+    margin: 0;
+    font-size: 10px;
+}
+
+.app_header nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.app_header a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.app_content {
+  margin: 0 auto;   /* ← 画面中央 */
+  padding: 12px;
+  width: 65%;
+
+}
+
+
+.app_content label {
+    display: block;
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.app_content input,
+.app_content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.app_content input,
+.app_content textarea,
+.app_content select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logout_form {
+    display: inline;
+}
+
+.logout_link {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    font: inherit;
+}
+
+.logout_link:hover {
+    text-decoration: underline;
+}
+
+/* ===== ログイン画面 ===== */
+
+body.guest {
+  background: linear-gradient(135deg, #075e54, #128c7e);
+  min-height: 100vh;
+}
+
+.guest_content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.auth_container {
+  background: white;
+  max-width: 100%;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.auth_title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth_form label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+.auth_form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.btn.full {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.auth_footer {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.btn_primary_full {
+    margin-top: 10px;
+}
+
+.form_error {
+    background: #ffecec;
+    color: #c62828;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.field_error {
+    color: #d32f2f;
+    font-size: 13px;
+    margin: 4px 0 12px;
+}
+.profile_image{
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #e0e0e0;
+    flex-shrink: 0;
+    display: block;
+}
+.profile_image_preview {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.placeholder {
+  background: #eee;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image_upload input[type="file"] {
+  display: none;
+}
+
+.image_upload {
+  display: inline-block;
+  margin: 12px auto 20px;
+  padding: 8px 16px;
+  background: #f0f0f0;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.card_list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 12px;
+}
+
+.user_card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  padding: 8px;
+}
+
+.user_card * {
+    pointer-events: none;
+}
+
+.card_img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile_main_img {
+  width: 400px;
+  height: 500px;
+  margin: 0 auto 16px;
+  display: block;
+  object-fit: cover;
+  border-radius: 10%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.profile_detail {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.back_area {
+  margin-bottom: 12px;
+}
+
+.back_link {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.profile_img_large {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.profile_thumbnails {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.thumb_img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.profile_name {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.profile_age {
+  font-size: 16px;
+  color: #777;
+  margin-left: 4px;
+}
+
+
+.profile_bio {
+  background: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.bio_placeholder {
+  color: #999;
+}
+
+.card_info {
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.card_name {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+    .card_list{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+.image_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.image_card {
+  position: relative;
+}
+
+.image_preview {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.delete_btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+}
+
+
+/* 横スライド全体 */
+.image_slider {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+/* スクロールバー非表示（スマホ風） */
+.image_slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* 画像1枚 */
+.image_item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+/* 画像サイズ */
+.slider_img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.add_image_area {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 360px;
+  z-index: 100;
+}
+
+.add_thumb {
+  width: 80px;
+  height: 80px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: #aaa;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.image_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.image_card, .image_add_card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f0f0f0;
+  outline: auto;
+}
+
+.image_preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image_add_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.delete_btn {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+}
+
+.btn_primary {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #ff5a5f;
+  color: white;
+  border-radius: 8px;
+}
+
+.job_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.job_card {
+  flex: 0 1 330px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.btn_apply {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #ff5a5f;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.job_detail_card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.job_actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 5px;
+  justify-content: center;
+}
+
+.secondary {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 3px;
+  margin: 8px;
+  padding: 8px;
+  width: 35%;
+  text-align: center;
+}
+
+.primary {
+  background: #ff5a5f;
+  color: #fff;
+  border-radius: 3px;
+  margin: 8px;
+  padding: 8px;
+  width: 35%;
+  text-align: center;
+}
+
+.disabled {
+  background: rgba(0,0,0,0.2);
+  color: black;
+  border-radius: 3px;
+  margin: 8px;
+  padding: 8px;
+  width: 35%;
+  text-align: center;
+}
+
+.secondary:hover, .primary:hover, .detail:hover {
+  opacity: 0.85;
+}
+
+.detail {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border-radius: 3px;
+  margin: 6px;
+  padding: 6px;
+
+}
+
+/* ページ限定 */
+.apply-page .apply_user_list {
+  grid-template-columns: repeat(2, 1fr);
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+}
+
+.apply-page .apply_user_list.single {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* ←縦も中央 */
+}
+
+/* カード */
+.apply-page .apply_user_card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 450px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.apply-page .apply_user_list.single .apply_user_card {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* 名前 */
+.apply-page .user_name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+/* ボタン横並び */
+.apply-page .apply_actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ボタン共通 */
+.apply-page .apply-btn {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+}
+
+/* プロフィール */
+.apply-page .profile-btn {
+  background: #eee;
+  color: #333;
+}
+
+/* 採用 */
+.apply-page .accept-btn {
+  background: #ff5a5f;
+  color: #fff;
+}
+
+.accepted {
+  background: #4caf50;
+  color: white;
+}
+
+.messages {
+  margin: 10px 0;
+}
+
+.message {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.message.error {
+  background: #ffecec;
+  color: #c62828;
+}
+
+.message.success {
+  background: #e6f4ea;
+  color: #2e7d32;
+}
+
+.job_card.closed {
+  background: #f0f0f0;
+  opacity: 0.6;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+}
+
+.job_status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  min-width: 170px;
+  height: 40px;
+}
+
+.job_card {
+  position: relative;
+}
+
+.job_status {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.job_tabs {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  background: #eee;
+  text-decoration: none;
+  color: black;
+  border-radius: 8px;
+}
+
+.tab.active {
+  background: #ff5a5f;
+  color: white;
+}
+
+.chat_wrapper {
+  min-width: 300px;
+  max-width: 900px;
+  width: 60%;
+  margin: 8px auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+}
+
+.chat_header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  height: 30px;
+}
+
+/* 戻るボタン */
+.back_btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: 0.2s;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+.back_btn:active {
+  transform: scale(0.95);
+}
+
+.chat_title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* メッセージ全体 */
+.chat_messages {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 8px;
+  background: #f5f5f5;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+/* 行 */
+.chat_row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+/* 左（相手） */
+.chat_row.other {
+  justify-content: flex-start;
+}
+
+/* 右（自分） */
+.chat_row.me {
+  justify-content: flex-end;
+  padding-right: 4px;
+}
+
+/* 吹き出し */
+.chat_bubble {
+  max-width: 85%;
+  padding: 10px;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 自分 */
+.chat_row.me .chat_bubble {
+  background: #06c755;
+  color: white;
+}
+
+/* 相手 */
+.chat_row.other .chat_bubble {
+  background: white;
+  border: 1px solid #ddd;
+}
+
+/* テキスト */
+.chat_text {
+  word-break: break-word;
+}
+
+/* 時刻 */
+.chat_time {
+  font-size: 10px;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+/* 入力フォーム */
+.chat_form {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 3px;
+  background: #fafafa;
+  padding-bottom: 10px;
+  border-radius: 12px;
+}
+
+.chat_form input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.chat_form button {
+  margin-left: 8px;
+  margin-right: 3px;
+  padding: 10px 15px;
+  border: none;
+  background: #06c755;
+  color: white;
+  border-radius: 20px;
+}
+
+.chat_row.other .chat_bubble::after {
+  content: "";
+  position: absolute;
+
+  left: -8px;
+  top: 10px;
+
+  width: 0;
+  height: 0;
+
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid white;
+}
+
+.chat_row.me .chat_bubble::after {
+  content: "";
+  position: absolute;
+  right: -12px;
+  top: 6px;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 15px solid #06c755;
+}
+
+.chat_user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  margin-left: 6px;
+}
+
+/* 画像ない場合 */
+.chat_icon.placeholder {
+  background: #ccc;
+}
+
+.chat_name {
+  font-size: 12px;
+  color: #555;
+}
+
+.chat_inner {
+  display: flex;
+  flex-direction: column;
+  max-width: none;
+}
+
+/* 名前（上） */
+.chat_name_only {
+  font-size: 12px;
+  color: #555;
+  margin-left: 34px;
+  margin-bottom: 2px;
+  font-weight: 500;
+}
+
+/* アイコン＋吹き出し横並び */
+.chat_body {
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+
+/* アイコン */
+.chat_icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 6px;
+}
+
+/* 相手（左） */
+.chat_row.other .chat_time {
+  text-align: left;
+}
+
+/* 自分（右） */
+.chat_row.me .chat_time {
+  text-align: right;
+  margin-right: 4px;
+}
+
+/* 自分側は右寄せ */
+.chat_row.me .chat_inner {
+  align-items: flex-end;
+}
+
+.chat_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contract_list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 10px;
+  max-width: 700px;
+  margin: 0 auto;
+
+}
+
+.contract_card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  transition: 0.2px;
+  justify-content: space-between; /* これでテキストとバッジが左右に分かれます */
+  align-items: center;           /* 上下の中央に揃えます */
+}
+
+.contract_card:hover {
+  transform: scale(0.98);
+}
+
+.chat_btn {
+  background: #ff5a5f;
+  color: #fff;
+  border-radius: 3px;
+  margin: 5px;
+  padding: 3px;
+}
+
+.contract_link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.badge {
+    /* サイズを大きく */
+    font-size: 1.2rem;       /* 文字を大きく */
+    font-weight: bold;
+    min-width: 35px;         /* 1文字でも綺麗な円になるよう最低幅を指定 */
+    height: 35px;            /* 高さを指定 */
+    padding: 0 5px;          /* 横方向の微調整 */
+    
+    /* 見た目の調整 */
+    background-color: #ff4d4f; /* 綺麗な赤色 */
+    color: white;
+    border-radius: 50%;      /* 正円にする */
+    
+    /* 重要：数字をバッジ内の真ん中に配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 右端に寄せた時にカードの端とくっつきすぎないように余白 */
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.review_exists {
+  font-size: 1.2rem;       /* 文字を大きく */
+  padding: 0 5px;          /* 横方向の微調整 */
+}
+
+.contract_actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.complete_btn {
+  background: #ff5a5f;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+}
+
+.cancel_btn {
+  background: #ff5a5f;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+}
+
+.chat_closed {
+  padding: 16px;
+  text-align: center;
+  background: #f0f0f0;
+  color: #666;
+  border-top: 1px solid #ddd;
+}
+
+.rank {
+  max-width: 50px;
+}
+
+.review_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.review {
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+.review_card {
+    background: white;
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.review_score {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.review_comment {
+    color: #444;
+}
+
+.profile_rating {
+    text-align: center;
+    font-size: 20px;
+}
+
+.review_link {
+    text-align: center;
+    margin-top: 6px;
+}
+
+.review_link a {
+    color: #666;
+}
+
+.profile_rating {
+    text-align: center;
+    margin: 16px 0;
+}
+
+.stars {
+    font-size: 24px;
+    color: #f5b301;
+    line-height: 1;
+}
+
+.rating_info {
+    margin-top: 4px;
+    font-size: 16px;
+}
+
+.rating_info a {
+    color: #666;
+    text-decoration: none;
+}
+
+.rating_info a:hover {
+    text-decoration: underline;
+}
+
+.review_user {
+    font-weight: bold;
+    margin-bottom: 6px;
+}
