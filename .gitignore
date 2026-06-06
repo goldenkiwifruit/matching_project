@@ -1,0 +1,21 @@
+# Pythonキャッシュ
+__pycache__/
+*.pyc
+*.pyo
+
+# DB（ローカル用）
+db.sqlite3
+
+# メディア（アップロードファイル）
+media/
+
+# 仮想環境（使ってたら）
+venv/
+env/
+
+# ログ
+*.log
+
+# OS系
+.DS_Store
+Thumbs.db
